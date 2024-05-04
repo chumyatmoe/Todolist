@@ -1,9 +1,9 @@
 ﻿@page "/todo"
 @rendermode InteractiveServer
-<h3>Todo List</h3>
+<h3>Todo List (@todos.Count(todo => !todo.IsDone))</h3>
 <ul>
     @foreach(var todo in todos){
-        <li>@todo.title</li>
+        <li><input type="checkbox" @bind="todo.IsDone"></input>@todo.title</li>
     }
 </ul>
 <input @bind="newtodo" />
